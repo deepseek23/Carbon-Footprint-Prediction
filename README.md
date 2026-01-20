@@ -11,6 +11,7 @@ This project predicts personal carbon emissions by combining multiple signals (e
 - Real-time carbon footprint prediction from user inputs
 - Streamlit-based interactive UI
 - Personalized reduction recommendations
+- AI-powered insights via Ollama (local LLM)
 - Reproducible preprocessing pipeline (encoding + scaling)
 - Visualization and comparison against benchmark/average footprints
 
@@ -21,6 +22,7 @@ This project predicts personal carbon emissions by combining multiple signals (e
 - Python 3.8+
 - Jupyter Notebook (for training)
 - Streamlit (for the web app)
+- Ollama (optional, for AI insights)
 
 ### Installation
 
@@ -61,6 +63,19 @@ streamlit run app.py
 ```
 
 Then open http://localhost:8501 in your browser.
+
+## AI Insights (Ollama)
+
+This project can optionally use **Ollama** to generate AI-driven insights (e.g., concise explanations and actionable suggestions based on the user’s inputs and predicted footprint). Ollama runs locally on your machine, keeping the inference workflow self-contained.
+
+If you want to enable AI insights:
+
+1. Install Ollama: https://ollama.com
+2. Pull a model (example):
+	```bash
+	ollama pull llama3
+	```
+3. Ensure Ollama is running before launching the Streamlit app.
 
 ## Dataset and Model
 
