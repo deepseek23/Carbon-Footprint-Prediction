@@ -1,77 +1,96 @@
-# 🌱 Carbon Footprint Calculator
+# Carbon Footprint Calculator
 
-A machine learning-powered web application that predicts individual carbon emissions based on lifestyle, transportation, and consumption habits.
+A machine learning–powered Streamlit application that estimates an individual’s annual carbon footprint (kg CO₂/year) from lifestyle, transportation, and consumption patterns.
 
-## 📖 Overview
+## Overview
 
-This project analyzes personal carbon footprints by considering multiple factors including diet, transportation, energy usage, and waste management. Built with Linear Regression and deployed via Streamlit, it provides real-time emission estimates (kg CO₂/year) and offers actionable recommendations for a sustainable lifestyle.
+This project predicts personal carbon emissions by combining multiple signals (e.g., diet, travel behavior, household energy usage, and waste management). The model is trained in the accompanying notebook and deployed as an interactive web app for real-time inference and actionable reduction recommendations.
 
-## 🚀 Features
+## Key Features
 
-- **Real-Time Predictions**: Instant carbon footprint calculations based on user inputs.
-- **Interactive Interface**: User-friendly, tab-based Streamlit application.
-- **Smart Recommendations**: Personalized tips to reduce environmental impact.
-- **Robust Preprocessing**: Automated scaling, multi-label handling, and statistical feature selection.
-- **Data Visualization**: Comparative metrics against average carbon footprints.
+- Real-time carbon footprint prediction from user inputs
+- Streamlit-based interactive UI
+- Personalized reduction recommendations
+- Reproducible preprocessing pipeline (encoding + scaling)
+- Visualization and comparison against benchmark/average footprints
 
-## 🛠️ Quick Start
+## Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- Jupyter Notebook (for training)
+- Streamlit (for the web app)
 
 ### Installation
 
-Clone the repository and install the required dependencies.
+1. Clone the repository:
+	```bash
+	git clone https://github.com/deepseek23/Carbon-Footprint-Prediction.git
+	cd carbon-footprint-calculator
+	```
 
-#### Clone the repository
-```
-git clone https://github.com/deepseek23/Carbon-Footprint-Prediction.git
-cd carbon-footprint-calculator
-```
+2. Install dependencies:
+	```bash
+	pip install -r requirements.txt
+	```
 
-#### Install dependencies
-```
-pip install -r requirements.txt
-```
+## Train the Model (One-Time)
 
-### Initialize Model
+The application expects trained artifacts to exist locally before it can run.
 
-Note: You must train the model once to generate the required .pkl files before running the app.
+1. Open the notebook:
+	```bash
+	jupyter notebook carbon_footprint.ipynb
+	```
 
-#### Open the notebook:
-```
-jupyter notebook carbon_footprint.ipynb
-```
+2. Run all cells to preprocess data and train the model.
 
-Run all cells to process the data and train the model.
+3. Confirm that these files are created:
 
-Verify that `carbon_footprint_model.pkl`, `carbon_scaler.pkl`, and `carbon_columns.pkl` have been created.
+- `carbon_footprint_model.pkl`
+- `carbon_scaler.pkl`
+- `carbon_columns.pkl`
 
-### Run Application
+## Run the Application
 
-Launch the web interface:
-```
+Start the Streamlit app:
+
+```bash
 streamlit run app.py
 ```
 
-The application will open automatically in your browser at http://localhost:8501.
+Then open http://localhost:8501 in your browser.
 
-## 📊 Dataset & Model
+## Dataset and Model
 
-- **Data Source**: Individual Carbon Footprint Calculation Dataset (10,000+ records).
-- **Algorithm**: Linear Regression.
-- **Performance**: ~0.78 R² Score on test data.
-- **Key Predictors**: Air travel frequency, vehicle type, and body type are the most significant drivers of emissions.
+- **Dataset**: Individual Carbon Footprint Calculation Dataset (10,000+ records)
+- **Model**: Linear Regression
+- **Test performance**: ~0.78 $R^2$
+- **Notable drivers**: air travel frequency, vehicle type, and body type
 
-## 🤝 Contributing
+### Model Description
 
-Contributions are welcome!
+The system uses a **Linear Regression** model to estimate annual emissions from mixed feature types (numeric + categorical). For consistent training and inference, the pipeline encodes categorical features into numeric representations and standardizes numeric inputs (e.g., using `StandardScaler`). The final feature set and column ordering are preserved to ensure that the Streamlit app applies transformations in the same way as the training notebook.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/NewFeature`)
-3. Commit your Changes (`git commit -m 'Add NewFeature'`)
-4. Push to the Branch (`git push origin feature/NewFeature`)
+### Deployment Artifacts
+
+The notebook exports the following artifacts for deployment:
+
+- `carbon_footprint_model.pkl` — trained regression model
+- `carbon_scaler.pkl` — fitted scaler for numeric features
+- `carbon_columns.pkl` — ordered feature/column list used during training
+
+## Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -m "Add my feature"`
+4. Push the branch: `git push origin feature/my-feature`
 5. Open a Pull Request
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Made with 🌱 for a greener planet
+This project is licensed under the MIT License. See `LICENSE` for details.
