@@ -66,7 +66,7 @@ The project uses the [Individual Carbon Footprint Calculation Dataset](https://h
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/carbon-footprint-calculator.git
+   git clone https://github.com/deepseek23/carbon-footprint-calculator.git
    cd carbon-footprint-calculator
    ```
 
