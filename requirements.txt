@@ -11,3 +11,4 @@ mlflow
 scipy
 optuna
 xgboost
+ollama

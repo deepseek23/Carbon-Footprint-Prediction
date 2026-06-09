@@ -43,14 +43,17 @@ dist/
 .pytest_cache/
 .mypy_cache/
 
-# Common ML artifacts (models, checkpoints)
-models/
+# ML experiment tracking (local, regenerable)
+tracking/
+mlflow.db
+optuna_study.db
+mlruns/
+mlartifacts/
+
+# Large model binaries (keep carbon_model_meta.json for docs)
+artifacts/model/*.pkl
+
+# Misc
+.devcontainer
 checkpoints/
 runs/
-
-# Data folders (raw/large data); keep small CSVs if needed
-.devcontainer
-mlflow.db
-mlruns/
-df_filtered.csv
-optuna_study.db

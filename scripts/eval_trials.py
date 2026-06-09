@@ -1,3 +1,8 @@
+"""Evaluate Optuna trials on hold-out data and log metrics to MLflow."""
+
+import sys
+from pathlib import Path
+
 import mlflow
 import optuna
 import pandas as pd
@@ -7,19 +12,23 @@ from optuna.trial import TrialState
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 
-PROJECT_DIR = __import__("pathlib").Path(__file__).resolve().parent
-mlflow.set_tracking_uri(f"sqlite:///{(PROJECT_DIR / 'mlflow.db').as_posix()}")
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from carbon.paths import MLFLOW_DB, OPTUNA_DB, PROCESSED_CSV  # noqa: E402
+
+mlflow.set_tracking_uri(f"sqlite:///{MLFLOW_DB.as_posix()}")
 exp_name = "CarbonEmission_Optuna_Trials"
 exp_id = mlflow.get_experiment_by_name(exp_name).experiment_id
 client = MlflowClient()
 
 study = optuna.load_study(
     study_name="carbon_emission_xgb",
-    storage=f"sqlite:///{(PROJECT_DIR / 'optuna_study.db').as_posix()}",
+    storage=f"sqlite:///{OPTUNA_DB.as_posix()}",
 )
 
-df = pd.read_csv(PROJECT_DIR / "new_carbon.csv")
-X = df.drop("CarbonEmission", axis=1)
+df = pd.read_csv(PROCESSED_CSV)
+X = df.drop(columns=["CarbonEmission", "Unnamed: 0"], errors="ignore")
 y = df["CarbonEmission"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 

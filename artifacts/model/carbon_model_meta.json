@@ -1,0 +1,110 @@
+{
+  "model_type": "xgboost",
+  "best_trial": 91,
+  "best_cv_r2": 0.9749638795852661,
+  "train_r2": 0.9839733242988586,
+  "test_r2": 0.9772766828536987,
+  "best_params": {
+    "n_estimators": 833,
+    "max_depth": 3,
+    "learning_rate": 0.0835893884728793,
+    "subsample": 0.6825984630856877,
+    "colsample_bytree": 0.8032030069279351,
+    "gamma": 8.498709438145385,
+    "min_child_weight": 4,
+    "reg_alpha": 0.06443964715481157,
+    "reg_lambda": 5.888933376131106
+  },
+  "source": "mlflow",
+  "numeric_cols": [
+    "Monthly Grocery Bill",
+    "Vehicle Monthly Distance Km",
+    "Waste Bag Weekly Count",
+    "How Long TV PC Daily Hour",
+    "How Many New Clothes Monthly",
+    "How Long Internet Daily Hour"
+  ],
+  "feature_cols": [
+    "Sex",
+    "Monthly Grocery Bill",
+    "Vehicle Monthly Distance Km",
+    "Waste Bag Weekly Count",
+    "How Long TV PC Daily Hour",
+    "How Many New Clothes Monthly",
+    "How Long Internet Daily Hour",
+    "Body Type_obese",
+    "Body Type_overweight",
+    "Body Type_underweight",
+    "Diet_vegetarian",
+    "How Often Shower_twice a day",
+    "Heating Energy Source_electricity",
+    "Transport_public",
+    "Transport_walk/bicycle",
+    "Social Activity_often",
+    "Frequency of Traveling by Air_never",
+    "Frequency of Traveling by Air_rarely",
+    "Frequency of Traveling by Air_very frequently",
+    "Waste Bag Size_large",
+    "Waste Bag Size_medium",
+    "Waste Bag Size_small",
+    "Vehicle Type_electric",
+    "Vehicle Type_hybrid",
+    "Vehicle Type_lpg",
+    "Vehicle Type_petrol",
+    "Vehicle Type_unknown",
+    "Glass",
+    "Metal",
+    "Paper",
+    "Plastic",
+    "Oven"
+  ],
+  "categorical_maps": {
+    "body_type": {
+      "Obese": "Body Type_obese",
+      "Overweight": "Body Type_overweight",
+      "Underweight": "Body Type_underweight"
+    },
+    "diet": {
+      "Vegetarian": "Diet_vegetarian"
+    },
+    "shower_frequency": {
+      "Twice a Day": "How Often Shower_twice a day"
+    },
+    "heating_source": {
+      "Electricity": "Heating Energy Source_electricity"
+    },
+    "transport": {
+      "Public": "Transport_public",
+      "Walk/Bicycle": "Transport_walk/bicycle"
+    },
+    "social_activity": {
+      "Often": "Social Activity_often"
+    },
+    "air_travel": {
+      "Never": "Frequency of Traveling by Air_never",
+      "Rarely": "Frequency of Traveling by Air_rarely",
+      "Very Frequently": "Frequency of Traveling by Air_very frequently"
+    },
+    "waste_bag_size": {
+      "Large": "Waste Bag Size_large",
+      "Medium": "Waste Bag Size_medium",
+      "Small": "Waste Bag Size_small"
+    },
+    "vehicle_type": {
+      "Electric": "Vehicle Type_electric",
+      "Hybrid": "Vehicle Type_hybrid",
+      "LPG": "Vehicle Type_lpg",
+      "Petrol": "Vehicle Type_petrol",
+      "Unknown": "Vehicle Type_unknown"
+    },
+    "recycling": {
+      "Glass": "Glass",
+      "Metal": "Metal",
+      "Paper": "Paper",
+      "Plastic": "Plastic"
+    },
+    "cooking_methods": {
+      "Oven": "Oven"
+    }
+  }
+}
