@@ -51,3 +51,6 @@ runs/
 # Data folders (raw/large data); keep small CSVs if needed
 .devcontainer
 mlflow.db
+mlruns/
+df_filtered.csv
+optuna_study.db
